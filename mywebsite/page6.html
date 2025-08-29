@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>arjun's Anandhi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      overflow: hidden;
+      font-family: "Poppins", sans-serif;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Quote at top */
+    .quote {
+      position: absolute;
+      top: 30px;
+      width: 100%;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: 600;
+      text-shadow: 0 0 20px #ffffff, 0 0 40px #ff69b4;
+      z-index: 5;
+    }
+
+    /* Floating glowing image */
+    .love-image {
+      width: 300px;
+      height: auto;
+      border-radius: 20px;
+      margin-top: 100px; /* gap below quote */
+      margin-bottom: 20px;
+      animation: float 4s ease-in-out infinite, glow 3s infinite alternate;
+      z-index: 5;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.5),
+                    0 0 40px rgba(255, 182, 193, 0.3);
+      }
+      to {
+        box-shadow: 0 0 50px rgba(255, 105, 180, 1),
+                    0 0 100px rgba(255, 182, 193, 0.8);
+      }
+    }
+
+    /* Continue button */
+    .btn {
+      padding: 12px 25px;
+      background: linear-gradient(90deg, #ff69b4, #ff1493);
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 1.1em;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+      transition: 0.3s ease;
+      z-index: 5;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px #ff69b4;
+    }
+
+    /* Stars background */
+    .stars {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0; left: 0;
+      background: transparent;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .stars span {
+      position: absolute;
+      border-radius: 50%;
+      background: white;
+      animation: twinkle 3s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; transform: scale(1); }
+      to { opacity: 1; transform: scale(1.3); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Quote at top -->
+  <div class="quote">
+    இருண்டு போன என் உலகிற்கு<br>
+    உன் சிரிப்பால் விளக்கெற்றி<br>
+    வெளிச்சம் தந்தவன் நீ… 🌸💫💖
+  </div>
+
+  <!-- Floating glowing image -->
+  <img src="img4.jpeg" alt="Love Image" class="love-image">
+
+  <!-- Continue Button -->
+  <button class="btn" onclick="nextPage()">Continue ➝</button>
+
+  <!-- Stars Background -->
+  <div class="stars" id="stars"></div>
+
+  <script>
+    // Generate random stars
+    const starContainer = document.getElementById("stars");
+    for (let i = 0; i < 80; i++) {
+      let star = document.createElement("span");
+      let size = Math.random() * 3 + "px";
+      star.style.width = size;
+      star.style.height = size;
+      star.style.top = Math.random() * 100 + "%";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.animationDuration = (Math.random() * 5 + 2) + "s";
+      starContainer.appendChild(star);
+    }
+
+    function nextPage() {
+      window.location.href = "page7.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Crystal Galaxy</title>
+<style>
+  body {
+    margin:0; height:100vh; background:linear-gradient(120deg,#1a2a6c,#b21f1f,#fdbb2d);
+    background-size:600% 600%; animation:bgShift 20s ease infinite;
+    display:flex; justify-content:center; align-items:center; flex-direction:column;
+    font-family:'Poppins',sans-serif; color:white; overflow:hidden;
+  }
+  @keyframes bgShift {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  .star {
+    position:absolute; width:4px;height:4px; background:white; border-radius:50%;
+    animation: twinkle 2s infinite;
+  }
+  @keyframes twinkle {
+    0%,100%{opacity:0.2;}
+    50%{opacity:1;}
+  }
+  .text { font-size:28px;font-weight:bold;text-shadow:0 0 20px #fff,0 0 40px #0ff; }
+  .btn { margin-top:30px;padding:12px 28px;font-size:18px;border:none;border-radius:25px;
+    background:linear-gradient(45deg,#ff6b81,#feca57); color:white;cursor:pointer;transition:transform 0.2s;}
+  .btn:hover{transform:scale(1.1);}
+</style>
+</head>
+<body>
+  <script>
+    for(let i=0;i<50;i++){
+      let star=document.createElement("div");
+      star.className="star";
+      star.style.top=Math.random()*100+"vh";
+      star.style.left=Math.random()*100+"vw";
+      star.style.animationDuration=(1+Math.random()*3)+"s";
+      document.body.appendChild(star);
+    }
+  </script>
+  <div class="text">Among stars & crystals, our galaxy of love sparkles 💎🌌</div>
+  <button class="btn">Continue ➝</button>
+</body>
+</html>

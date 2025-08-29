@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>arjun's Anandhi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(ellipse at bottom, #0d0d2b 0%, #000000 100%);
+      overflow: hidden;
+      font-family: "Poppins", sans-serif;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px #ff1493, 0 0 40px #ff69b4;
+      z-index: 5;
+    }
+
+    /* Quote style */
+    .quote {
+      font-size: 1.1em;
+      font-weight: 500;
+      line-height: 1.6;
+      max-width: 85%;
+      margin-bottom: 25px;
+      text-shadow: 0 0 15px #ff69b4, 0 0 30px #ff1493;
+      z-index: 5;
+    }
+
+    /* Image box (square shape) */
+    .image-box {
+      width: 200px;
+      height: 200px;
+      border-radius: 20px; /* square with slightly rounded corners */
+      background: url("img3.jpeg") center/cover no-repeat;
+      animation: float 4s ease-in-out infinite, glow 3s infinite alternate;
+      z-index: 5;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.5),
+                    0 0 40px rgba(138, 43, 226, 0.3);
+      }
+      to {
+        box-shadow: 0 0 60px rgba(255, 105, 180, 1),
+                    0 0 120px rgba(138, 43, 226, 0.9);
+      }
+    }
+
+    /* Continue button */
+    .btn {
+      margin-top: 25px;
+      padding: 12px 25px;
+      background: linear-gradient(90deg, #ff69b4, #8a2be2);
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 1.1em;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+      transition: 0.3s ease;
+      z-index: 5;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px #ff69b4, 0 0 25px #8a2be2;
+    }
+
+    /* Galaxy Stars Background */
+    .stars {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0; left: 0;
+      background: transparent;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .stars span {
+      position: absolute;
+      border-radius: 50%;
+      background: white;
+      animation: twinkle 3s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; transform: scale(1); }
+      to { opacity: 1; transform: scale(1.4); }
+    }
+  </style>
+</head>
+<body>
+  <h1>💖 Thanks for coming 💫</h1>
+
+  <!-- Tamil Quote -->
+  <div class="quote">
+    எதிர்பார்த்த உறவுகள் எல்லாம் கைவிட்டு சென்றபோது,<br>
+    எதிர்பாராமல் வந்தவன் நீ….<br>
+    இறுக்கப் பிடித்துக்கொள் என் கைகளை மட்டும் அல்ல,<br>
+    என்னையும் சேர்த்து என்னவனே… 💕
+  </div>
+
+  <!-- Image in Square Box -->
+  <div class="image-box"></div>
+
+  <!-- Continue Button -->
+  <button class="btn" onclick="nextPage()">Continue ➝</button>
+
+  <!-- Stars Background -->
+  <div class="stars" id="stars"></div>
+
+  <script>
+    // Generate random stars
+    const starContainer = document.getElementById("stars");
+    for (let i = 0; i < 100; i++) {
+      let star = document.createElement("span");
+      let size = Math.random() * 3 + "px";
+      star.style.width = size;
+      star.style.height = size;
+      star.style.top = Math.random() * 100 + "%";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.animationDuration = (Math.random() * 5 + 2) + "s";
+      starContainer.appendChild(star);
+    }
+
+    function nextPage() {
+      window.location.href = "Secondpage.html";
+    }
+  </script>
+</body>
+</html>
